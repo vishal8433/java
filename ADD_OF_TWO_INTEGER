@@ -1,0 +1,20 @@
+//created by- vishal jain
+//date-29/08/2019
+//compiled on-intellij idea ultimate.
+//program name=ADDITION OF TWO INTEGER.
+
+package ADD_OF_TWO_INTEGER;
+
+import java.util.Scanner;
+
+public class ADD_OF_TWO_INTEGER {
+    public static void main(String[] args) {
+        double  a,b,c;
+        Scanner vj=new Scanner(System.in);
+        System.out.println("enter the value of a,b");
+        a=vj.nextDouble();
+        b=vj.nextDouble();
+        c=a+b;
+        System.out.println("ADDITION IS:"+c);
+    }
+}

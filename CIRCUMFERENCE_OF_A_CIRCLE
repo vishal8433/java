@@ -1,0 +1,19 @@
+//created by- vishal jain
+//date-29/08/2019
+//compiled on-intellij idea ultimate.
+//program name-CIRCUMFERENCE OF A CIRCLE.
+
+package CIRCUMFERENCE_OF_A_CIRCLE;
+
+import java.util.Scanner;
+
+public class CIRCUMFERENCE_OF_A_CIRCLE {
+    public static void main(String[] args) {
+        double r,c;
+        Scanner vj=new Scanner(System.in);
+        System.out.println("ENTER THE RADIUS:");
+        r=vj.nextDouble();
+        c=2*3.141*r;
+        System.out.println("CIRCUMFERENCE:"+c);
+    }
+}

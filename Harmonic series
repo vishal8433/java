@@ -1,0 +1,33 @@
+    
+//created by- vishal jain
+//date-29/08/2019
+//compiled on-intellij idea ultimate.
+//program name- Write a program in Java , to determine the sum of the following harmonic series for a given
+//                 value of n ;
+//               The value of n should be given interactively through the keyboard.
+//               Hint: Use the Scanner class from the package java.util.Scanner
+
+
+package ques3;
+
+import java.util.Scanner;
+
+public class q3 {
+    public static void main(String[] args) {
+        Scanner q3 = new Scanner(System.in);
+        double sum=0,n,i;
+        System.out.println("please enter the number:");
+        n=q3.nextDouble();
+        for(i=1;i<=n;i++)
+        {
+            sum=sum+(1/i);
+            if(i==1)
+                System.out.println("1+");
+            else if(i==n)
+                System.out.println("1/"+i);
+            else
+                System.out.println("1/"+i+"+");
+        }
+        System.out.println("the sum of the sereis is="+sum);
+    }
+}

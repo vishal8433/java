@@ -1,0 +1,28 @@
+//created by- vishal jain
+//date-29/08/2019
+//compiled on-intellij idea ultimate.
+//program name-Write a program in Java , to covert the given temperature in Fahrenheit to Celsius using
+//the following conversion formula:
+//                                 c=(f-32)/1.8
+//and output the resulting value to the user.
+
+
+
+package ques1;
+
+import com.intellij.codeInsight.template.postfix.templates.SoutPostfixTemplate;
+
+import java.util.Scanner;
+
+public class Q1 {
+    public static void main(String[] args) {
+        double temp,res;
+        Scanner Q1=new Scanner(System.in);
+        System.out.println("enter your temp in Fahrenheit");
+        temp=Q1.nextDouble();
+        res=(temp-32)/1.8;
+        System.out.println("temperature in celcius ="+res);
+
+    }
+
+}

@@ -1,0 +1,23 @@
+//created by- vishal jain
+//date-04/09/2019
+//compiled on-intellij idea ultimate.
+//program name-short intro
+
+
+package intro;
+
+import java.util.Scanner;
+
+public class intro {
+    public static void main(String[] args) {
+        String Name,gender;
+        int age;
+        Scanner vj=new Scanner(System.in);
+        System.out.println("enter your name,age,gender");
+        Name=vj.nextLine();
+        gender=vj.nextLine();
+        age=vj.nextInt();
+        System.out.println("your intro is "+Name+" "+age+" "+gender);
+    }
+
+}

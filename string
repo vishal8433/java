@@ -1,0 +1,22 @@
+//created by- vishal jain
+//date-04/09/2019
+//compiled on-intellij idea ultimate.
+//program name-string
+
+package string;
+
+import java.util.Scanner;
+
+public class string {
+    public static void main(String[] args) {
+        String name;
+        String email;
+        Scanner vj=new Scanner(System.in);
+        System.out.println("enter your name and email");
+        name = vj.toString();
+        email= vj.nextLine();
+        System.out.println("your name is="+name);
+        System.out.println("your email is="+email);
+
+    }
+}

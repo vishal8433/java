@@ -1,0 +1,30 @@
+    
+//created by- vishal jain
+//date-04/09/2019
+//compiled on-intellij idea ultimate.
+//program name-primitive data type.
+
+package primitive_data_type;
+
+public class primitive_data_type {
+    public static void main(String[] args) {
+        int a=20;
+        char c='a';
+        double b=1.333;
+        boolean d=true;
+        byte e=1;
+        float f=5;
+        short g=1;
+        long h=2;
+        System.out.println("int="+a);
+        System.out.println("char="+c);
+        System.out.println("double="+b);
+        System.out.println("boolean"+d);
+        System.out.println("byte="+e);
+        System.out.println("float="+f);
+        System.out.println("short="+g);
+        System.out.println("long="+h);
+
+
+    }
+}

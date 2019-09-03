@@ -1,0 +1,26 @@
+//created by- vishal jain
+//date-04/09/2019
+//compiled on-intellij idea ultimate.
+//program name-even or odd.
+
+package even_odd;
+
+import java.util.Scanner;
+
+public class even_odd {
+    public static void main(String[] args) {
+        int a;
+        Scanner vj=new Scanner(System.in);
+        System.out.println("enter your number");
+        a=vj.nextInt();
+        if(a%2==0)
+
+            System.out.println("number is even");
+
+        else if(a%2!=0)
+
+            System.out.println("number is odd");
+
+
+    }
+}

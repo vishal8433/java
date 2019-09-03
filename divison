@@ -1,0 +1,22 @@
+//created by- vishal jain
+//date-04/09/2019
+//compiled on-intellij idea ultimate.
+//program name-divison.
+
+package divison;
+
+import java.util.Scanner;
+
+public class divison {
+    public static void main(String[] args) {
+        int a,b,c,d;
+        Scanner vj=new Scanner(System.in);
+        System.out.println("enter the value of a,b");
+        a=vj.nextInt();
+        b=vj.nextInt();
+        c=a/b;
+        d=a%b;
+        System.out.println("quoteint="+c);
+        System.out.println("riemender"+d);
+    }
+}

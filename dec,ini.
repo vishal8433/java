@@ -1,0 +1,21 @@
+//created by- vishal jain
+//date-03/09/2019
+//compiled on-intellij idea ultimate.
+//program name=declaration, initialisation.
+
+package dec;
+
+import java.util.Scanner;
+
+public class vj {
+    public static void main(String[] args) {
+        int a,b;
+        Scanner vj=new Scanner(System.in);
+        System.out.println("enter the value of a,b");
+        a=vj.nextInt();
+        b=vj.nextInt();
+        System.out.println("the value of a="+a);
+        System.out.println("the value of b="+b);
+    }
+}
+

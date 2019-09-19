@@ -1,0 +1,116 @@
+/*created by- vishal jain
+date-29/08/2019
+compiled on-intellij idea ultimate.
+program name-
+Alan is a mobile shop owner.
+He sells latest smartphones in his shop.
+He asks you to create a simple CLI-based application for his customers to see the phones he currently sells.
+Information about the app is given below-
+1. Any phone will have the following information -
+- The name of the model (String)
+- The name of the company (String)
+- The price of the model (double)
+
+2. Alan can have n number of mobile phones in his shop at a time.
+Hint: Use double price = Double.parseDouble(scanner.nextLine().trim()); to input the double value for price.
+
+Input Format
+
+The input will consist of 3 * n + 1 lines at all times.
+The first line of input will be an int number named n which will be the number of input. (Alan will tell the program how many mobiles he is going to enter)
+The next 3 * n lines of input will be the entries of the n mobiles phones Alan has.
+
+Constraints
+
+The number of mobile phones in Alan's shop cannot be 0 at any time.
+The number of mobile phones in Alan's shop will not exceed 100 at any time.
+The name of the model of the phone can only be 16 characters long at max.
+The name of the company of the phone can only be 16 characters long at max.
+The price of any mobile will not be greater than 100000.0 at any time.
+If the number of mobiles is out of the range (0, 100) then print invalid number of mobiles.
+
+Output Format
+
+Your program must output in the following format -
+
+--------Alan's Mobile Shop--------
+modelName        companyName        price
+The output should be for the n entries entered before.
+Use tabs (\t) for spacing.
+
+Sample Input 0
+
+2
+N92
+Nokia
+10000.0
+N91
+Noika
+8900.0
+Sample Output 0
+
+--------Alan's Mobile Shop--------
+             N92               Nokia    10000.000000
+             N91               Noika    8900.000000     
+_______________code___________________________________*/             
+import java.util.Scanner;
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner scanner =new Scanner(System.in);
+        int n=scanner.nextInt();
+        scanner.nextLine().trim();
+        Mobile[] mobiles = new Mobile[n];
+        if(n<=0 || n>100){
+            System.out.println("invalid number of mobiles");
+        } else{
+            for(int i=0 ; i<n ; i++){
+            String ModelName = scanner.nextLine().trim();
+            String CompanyName = scanner.nextLine().trim();
+            double Price = Double.parseDouble(scanner.nextLine().trim());
+            mobiles[i]=new Mobile(ModelName,CompanyName,Price);
+            }
+            System.out.println("--------Alan's Mobile Shop--------");
+            for(int j=0 ; j<n ; j++){
+                System.out.println(mobiles[j]);
+            }
+        }
+        scanner.close();
+    }
+}
+class Mobile{
+    private String ModelName;
+    private String CompanyName;
+    private double Price;
+    
+    public String getModelName(){
+        return ModelName;
+    }
+    public String getCompanyName(){
+        return CompanyName;
+    }
+    public double getPrice(){
+        return Price;
+    }
+    public void setModelName(String modelName){
+        this.ModelName=modelName;
+    }
+    public void setCompanyName(String companyName){
+        this.CompanyName=companyName;
+    }
+    public void setPrice(double price){
+        this.Price=price;
+    }
+    public Mobile(String ModelName ,String CompanyName , double Price){
+        this.ModelName=ModelName;
+        this.CompanyName=CompanyName;
+        this.Price=Price;
+    }
+    @Override
+    public String toString(){
+        return String.format("%16s\t%16s\t%10f", getModelName() , getCompanyName() ,getPrice());
+    }
+} 
+             
+             
+             

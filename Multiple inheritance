@@ -1,0 +1,33 @@
+  
+//created by- vishal jain
+//date-29/08/2019
+//compiled on-intellij idea ultimate.
+//program name=MULTIPLE INHERITANCE.(not supported in java)
+
+package zoo;
+
+public class Animals {
+    void eat()
+    {
+        System.out.println("eating");
+    }
+}
+class Dog extends Animals{
+    void bark(){
+        System.out.println("barking");
+    }
+}
+class cat extends Animals,Dog{
+    void meow(){
+        System.out.println("meoww");
+    }
+}
+class single_Inheritance{
+    public static void main(String[] args) {
+        cat d =new cat();
+        d.eat();
+    }
+}
+
+
+//output-runtime error.

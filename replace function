@@ -1,0 +1,22 @@
+//created by- vishal jain
+//date-24/09/2019
+//compiled on-intellij idea ultimate.
+//program name=replace function.
+
+package replace;
+
+import java.util.Scanner;
+
+public class Replace {
+    public static void main(String[] args) {
+        Scanner vj=new Scanner(System.in);
+        System.out.println("enter your string");
+        String str=vj.nextLine().trim();
+        System.out.println("enter your char. for replacement");
+        String str1=vj.nextLine().trim();
+        System.out.println("enter your char. for replacing old char.");
+        String str2=vj.nextLine().trim();
+        str=str.replace(str1,str2);
+        System.out.println("the result is "+str);
+    }
+}

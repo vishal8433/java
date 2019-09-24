@@ -1,0 +1,21 @@
+//created by- vishal jain
+//date-24/09/2019
+//compiled on-intellij idea ultimate.
+//program name=Char_AT function.
+
+package Char_AT;
+
+import java.util.Scanner;
+
+public class Char_AT {
+    public static void main(String[] args) {
+        Scanner vj=new Scanner(System.in);
+        System.out.println("enter your string:");
+        String str =vj.nextLine().trim();
+        System.out.println("enter your index:");
+        int v =vj.nextInt();
+        str=str.substring(v);
+        System.out.println(str);
+
+    }
+}

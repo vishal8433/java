@@ -1,0 +1,14 @@
+//created by- vishal jain
+//date-24/09/2019
+//compiled on-intellij idea ultimate.
+//program name=TRIM function.
+
+package TRIM;
+
+public class Trim {
+    public static void main(String[] args) {
+        String str="                  vishal   jain                       ";
+        str=str.trim();
+        System.out.println(str);
+    }
+}

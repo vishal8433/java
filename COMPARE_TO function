@@ -1,0 +1,20 @@
+//created by- vishal jain
+//date-24/09/2019
+//compiled on-intellij idea ultimate.
+//program name=COMPARETO function
+
+package COMPARETO;
+
+import java.util.Scanner;
+
+public class Compareto {
+    public static void main(String[] args) {
+        Scanner vj=new Scanner(System.in);
+        System.out.println("enter your 1st string");
+        String str1=vj.nextLine().trim();
+        System.out.println("enter your 2nd string");
+        String str2=vj.nextLine().trim();
+        int v=str1.compareTo(str2);
+        System.out.println("the result is "+v);
+    }
+}

@@ -1,0 +1,23 @@
+//created by- vishal jain
+//date-24/09/2019
+//compiled on-intellij idea ultimate.
+//program name=index_of function.
+
+package index_of;
+
+import java.util.Scanner;
+
+public class Index_of {
+    public static void main(String[] args) {
+        Scanner vj=new Scanner(System.in);
+        System.out.println("enter your string");
+        String str=vj.nextLine().trim();
+        System.out.println("enter your character");
+        String c=vj.nextLine();
+        int v=str.indexOf(c);
+        System.out.println("the result is "+v);
+
+
+
+    }
+}

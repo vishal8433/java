@@ -1,0 +1,24 @@
+//created by- vishal jain
+//date-24/09/2019
+//compiled on-intellij idea ultimate.
+//program name= code.
+
+
+package ab;
+
+public class symposium {
+    public static void main(String[] args) {
+        x(1,Integer.MAX_VALUE+1);
+
+    }
+
+    public static void  x (int x , int y) {
+        System.out.println("1");
+
+    }
+
+    public static void x(int ... z) {
+        System.out.println("2");
+
+    }
+}

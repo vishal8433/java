@@ -1,0 +1,19 @@
+  
+//created by- vishal jain
+//date-24/09/2019
+//compiled on-intellij idea ultimate.
+//program name= upper_case function.
+
+package upper_case;
+
+import java.util.Scanner;
+
+public class uppercase {
+    public static void main(String[] args) {
+        Scanner vj=new Scanner(System.in);
+        System.out.println("enter your string:");
+        String str=vj.nextLine().trim();
+        str=str.toUpperCase();
+        System.out.println("string in uppercase is "+str);
+    }
+}

@@ -1,0 +1,33 @@
+//created by- vishal jain
+//date-24/09/2019
+//compiled on-intellij idea ultimate.
+//program name=length function;
+
+import java.util.Scanner;
+
+public class Lengthofstring {
+    public static void main(String[] args) {
+        Scanner vj=new Scanner(System.in);
+        System.out.println("enter your string");
+        String str=vj.nextLine().trim();
+        int l=str.length();
+        System.out.println("the length of your string"+l);
+
+    }
+}
+
+
+package length;
+
+import java.util.Scanner;
+
+public class Lengthofstring {
+    public static void main(String[] args) {
+        Scanner vj=new Scanner(System.in);
+        System.out.println("enter your string");
+        String str=vj.nextLine().trim();
+        int l=str.length();
+        System.out.println("the length of your string"+l);
+
+    }
+}

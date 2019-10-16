@@ -1,0 +1,13 @@
+//created by- vishal jain
+//date-16/10/2019
+//compiled on-intellij idea ultimate.
+//program name-startsWith,endsWith function.
+
+package Startwith_Endwith;
+
+public class Startwith_Endwith {
+    public static void main(String[] args) {
+        System.out.println("foobar".startsWith("foo"));
+        System.out.println("foobar".endsWith("bar"));
+    }
+}

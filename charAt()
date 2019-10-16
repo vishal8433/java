@@ -1,0 +1,14 @@
+//created by- vishal jain
+//date-16/10/2019
+//compiled on-intellij idea ultimate.
+//program name-charAt().
+
+
+package Char_At;
+
+public class Char_At {
+    public static void main(String[] args) {
+        char c ="abcdefgh".charAt(3);
+        System.out.println(c);
+    }
+}

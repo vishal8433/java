@@ -1,0 +1,16 @@
+//created by- vishal jain
+//date-16/10/2019
+//compiled on-intellij idea ultimate.
+//program name-replace function.
+
+
+package Replace;
+
+public class Replace {
+    public static void main(String[] args) {
+        StringBuffer sb=new StringBuffer("The tea is too hot.");
+        System.out.println(sb);
+        sb.replace(4,7,"COFFEE");
+        System.out.println(sb);
+    }
+}

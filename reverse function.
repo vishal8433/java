@@ -1,0 +1,16 @@
+//created by- vishal jain
+//date-16/10/2019
+//compiled on-intellij idea ultimate.
+//program name-reverse function.
+
+
+package Reverse;
+
+public class Reverse {
+    public static void main(String[] args) {
+        StringBuffer sb=new StringBuffer("vishal jain");
+        System.out.println(sb);
+        sb.reverse();
+        System.out.println(sb);
+    }
+}

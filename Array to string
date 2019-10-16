@@ -1,0 +1,28 @@
+//created by- vishal jain
+//date-16/10/2019
+//compiled on-intellij idea ultimate.
+//program name-array to string.
+___________________________________________________________________
+package Length;
+
+public class Length {
+    public static void main(String[] args) {
+        char c[]={'a','b','c','d'};
+        String s=new String(c);
+        String s1="abcd";
+        System.out.println(s.length());
+        System.out.println("abcd".length());
+    }
+}
+_____________________________________________________________________
+package Array_to_String;
+
+public class Array_to_String {
+    public static void main(String[] args) {
+        byte ascii[]={65,66,67,68,69,70};
+        String s1=new String(ascii);
+        System.out.println(s1);
+        String s2=new String(ascii,2,3);
+        System.out.println(s2);
+    }
+}

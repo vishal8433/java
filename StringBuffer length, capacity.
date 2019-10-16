@@ -1,0 +1,16 @@
+//created by- vishal jain
+//date-16/10/2019
+//compiled on-intellij idea ultimate.
+//program name-StringBuffer length, capacity.
+
+
+package String_Buffer;
+
+public class String_Buffer {
+    public static void main(String[] args) {
+        StringBuffer sb=new StringBuffer("Hello");
+        System.out.println("buffer=" + sb);
+        System.out.println("length ="+sb.length());
+        System.out.println("capacity="+sb.capacity());
+    }
+}

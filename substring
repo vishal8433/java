@@ -1,0 +1,15 @@
+//created by- vishal jain
+//date-16/10/2019
+//compiled on-intellij idea ultimate.
+//program name-substring.
+
+package ss;
+
+public class Substring {
+    public static void main(String[] args) {
+        String vj =new String("vishal jain");
+        System.out.println("The extracted string is:");
+        System.out.println(vj.substring(7));
+
+    }
+}

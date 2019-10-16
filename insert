@@ -1,0 +1,14 @@
+//created by- vishal jain
+//date-16/10/2019
+//compiled on-intellij idea ultimate.
+//program name-insert.
+
+package insert;
+
+public class Insert {
+    public static void main(String[] args) {
+        StringBuffer sb=new StringBuffer("I JAVA!");
+        sb.insert(2,"LIKE ");
+        System.out.println(sb);
+    }
+}

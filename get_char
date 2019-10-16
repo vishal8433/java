@@ -1,0 +1,17 @@
+//created by- vishal jain
+//date-16/10/2019
+//compiled on-intellij idea ultimate.
+//program name-Get char function.
+
+package Get_Char;
+
+public class Get_Char {
+    public static void main(String[] args) {
+        String s="this is a demo of getchars method.";
+        int Start=10;
+        int End=14;
+        char buf[]=new char[End-Start];
+        s.getChars(Start,End,buf,0);
+        System.out.println(buf);
+    }
+}

@@ -1,0 +1,27 @@
+//created by- vishal jain
+//date-16/10/2019
+//compiled on-intellij idea ultimate.
+//program name-Modifying a string.
+
+package Modifiying_A_String;
+
+public class Modifiying_A_String {
+    public static void main(String[] args) {
+        String vj="this is a coffee.this is too hot.";
+        String Search="is";
+        String sub="was";
+        String Result="";
+        int i;
+        do {
+            System.out.println(vj);
+            i=vj.indexOf(Search);
+            if (i!=-1){
+                Result=vj.substring(0,i);
+                Result=Result+sub;
+                Result=Result+vj.substring(i+Search.length());
+                vj=Result;
+            }
+        }
+        while (i!=-1);
+    }
+}

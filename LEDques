@@ -1,4 +1,4 @@
-You are given a strip of Diwali decoration lights. They are available with LEDs of four colours, namely, Red, Green, Blue and White.
+/*You are given a strip of Diwali decoration lights. They are available with LEDs of four colours, namely, Red, Green, Blue and White.
 There are also some defective LEDs in the strip. You have been told to find out the defective LEDs in the strip. 
 Each LED has the following fields
 colourName : String
@@ -36,4 +36,100 @@ Red false
 Green false
 Blue false
 White true
-This strip is defective!
+This strip is defective!*/
+//________________________________________________________________________________________________________
+//code
+package Diwali;
+
+public class LED {
+    private String colourName;
+    private boolean working;
+
+    public LED(String colourName, boolean working) {
+        this.colourName = colourName;
+        this.working = working;
+    }
+
+    public String getColourName() {
+        return colourName;
+    }
+
+    public void setColourName(String colourName) {
+        this.colourName = colourName;
+    }
+
+    public boolean isWorking() {
+        return working;
+    }
+
+    public void setWorking(boolean working) {
+        this.working = working;
+    }
+}
+//______________________________________________________________________________________
+package Diwali;
+
+class LEDStrip {
+    private LED[] LEDArray;
+    private int lengthOfStrip;
+
+    public LEDStrip(int lengthOfStrip) {
+        this.lengthOfStrip = lengthOfStrip;
+        this.LEDArray = new LED[lengthOfStrip];
+    }
+
+    private int getLengthOfStrip() {
+        return lengthOfStrip;
+    }
+
+    public LED[] getLEDArray() {
+        return LEDArray;
+    }
+
+    public void setLEDArray(LED[] LEDArray) {
+        this.LEDArray = LEDArray;
+    }
+
+    public int numberOfDefectiveLED() {
+        int result = 0;
+        for (LED led : LEDArray) {
+            if (!led.isWorking()) {
+                result++;
+            }
+        }
+        return result;
+    }
+
+    private boolean isStripDefective() {
+        return numberOfDefectiveLED() > (getLengthOfStrip() / 2);
+    }
+
+    public void showStripStatus() {
+        System.out.println(isStripDefective() ? "This strip is defective!" : "This strip is not defective!");
+    }
+
+}
+//____________________________________________________________________________________________________________________
+package Diwali;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        final Scanner scanner = new Scanner(System.in);
+        System.out.println("enter number of led");
+        int numberOfLEDS = Integer.parseInt(scanner.nextLine());
+        LED[] LEDArray = new LED[numberOfLEDS];
+        for (int i = 0; i < LEDArray.length; i++) {
+            String colourName = scanner.next();
+            boolean working = scanner.nextBoolean();
+            LEDArray[i] = new LED(colourName, working);
+        }
+        LEDStrip ledStrip = new LEDStrip(numberOfLEDS);
+        ledStrip.setLEDArray(LEDArray);
+        System.out.println(ledStrip.numberOfDefectiveLED());
+        ledStrip.showStripStatus();
+        scanner.close();
+    }
+}
+

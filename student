@@ -1,0 +1,88 @@
+package Database;
+import java.util.Scanner;
+
+public class Student_info {
+    public static void main(String[] args) {
+        Scanner vj=new Scanner(System.in);
+        System.out.println("enter the number of Students");
+        int n=vj.nextInt();
+        vj.nextLine().trim();
+        Student[] students=new Student[n];
+        for (int i=0;i<n; i++){
+            System.out.println("enter student name:");
+            String SName=vj.nextLine().trim();
+            System.out.println("enter father's name:");
+            String FName=vj.nextLine().trim();
+            System.out.println("enter mother's name:");
+            String MName=vj.nextLine().trim();
+            System.out.println("enter Address:");
+            String Address=vj.nextLine().trim();
+            System.out.println("enter  student mobile number:");
+            long S_mob_no=vj.nextLong();
+            System.out.println("enter father's mobile number:");
+            long F_mob_no=vj.nextLong();
+            students[i]= new Student(SName,FName,MName, Address,S_mob_no,F_mob_no);
+        }
+        System.out.println("___________________DATABASE__________________");
+        for (int j=0;j<n;j++){
+            System.out.println(students[j]);
+        }
+        vj.close();
+    }
+}
+class Student{
+    private String  SName;
+    private String FName;
+    private String MName;
+    private String Address;
+    private long S_mob_no;
+    private long F_mob_no;
+
+    public String getSName(){
+        return SName=SName;
+    }
+    public String getFName(){
+        return FName=FName;
+    }
+    public String getMName(){
+        return MName=MName;
+    }
+    public String getAddress(){
+        return Address=Address;
+    }
+    public long getS_mob_no(){
+        return S_mob_no=S_mob_no;
+    }
+    public long getF_mob_no(){
+        return F_mob_no=F_mob_no;
+    }
+    public void setSName(String SName){
+        this.SName=SName;
+    }
+    public void setFName(String FName){
+        this.FName=FName;
+    }
+    public void setMName(String MName){
+        this.MName=MName;
+    }
+    public void setAddress(String Address){
+        this.Address=Address;
+    }
+    public void setS_mob_no(long S_mob_no){
+        this.S_mob_no=S_mob_no;
+    }
+    public void setF_mob_no(long F_mob_no){
+        this.F_mob_no=F_mob_no;
+    }
+    public Student(String SName,String FName,String MName,String Address,long S_mob_no,long F_mob_no){
+        this.SName=SName;
+        this.FName=FName;
+        this.MName=MName;
+        this.Address=Address;
+        this.S_mob_no=S_mob_no;
+        this.F_mob_no=F_mob_no;
+    }
+    public String tostring(){
+        return String.format("%s%s%s%s%d%d",getSName(),getFName(),getMName(),getAddress(),getS_mob_no(),getF_mob_no());
+    }
+}

@@ -1,0 +1,54 @@
+//created by- vishal jain
+//date-16/11/2019
+//compiled on-intellij idea ultimate.
+//program name-Timekeeper.
+
+package Practice;
+
+import org.jetbrains.dekaf.H2db;
+
+import java.util.Scanner;
+
+public class Timekeeper {
+    public static void main(String[] args) {
+        Scanner vj=new Scanner(System.in);
+        System.out.println("enter Hours!");
+        int Hours=vj.nextInt();
+        System.out.println("enter Minutes!");
+        int Minutes=vj.nextInt();
+        System.out.println("enter Seconds!");
+        int Seconds=vj.nextInt();
+        System.out.println("TIME-"+Hours+":"+Minutes+":"+Seconds);
+    }
+}
+class Timekeep{
+    private int Hours;
+    private int Minutes;
+    private int Seconds;
+    public int getHours(){
+        return Hours;
+    }
+    public int getMinutes(){
+        return Minutes;
+    }
+    public int getSeconds(){
+        return Seconds;
+    }
+    public void setHours(int Hours){
+        this.Hours=Hours;
+    }
+    public void setMinute(int Minutes){
+        this.Minutes=Minutes;
+    }
+    public void setSeconds(int Seconds){
+        this.Seconds=Seconds;
+    }
+    public Timekeep(int Hours ,int minutes , int Seconds){
+        this.Hours=Hours;
+        this.Minutes=Minutes;
+        this.Seconds=Seconds;
+    }
+    public String tostring(){
+        return String.format("%d%d%d",getHours(),getMinutes(),getSeconds());
+    }
+}

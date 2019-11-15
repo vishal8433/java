@@ -1,0 +1,28 @@
+//created by- vishal jain
+//date-16/11/2019
+//compiled on-intellij idea ultimate.
+//program name-Create a class named ‘TimeConverter.java’. This class will convert a total number of seconds to hours, minutes and seconds. It should:
+//Prompt the user for input
+//Read an integer from the keyboard
+//Calculate the result, and
+//Use the ‘printf()’ method to display the output.
+//For example, “5000 seconds = 1 hour, 23 minutes and 20 seconds”
+
+
+package Practice2;
+
+import java.util.Scanner;
+
+public class Time_converter {
+    public static void main(String[] args) {
+        Scanner vj=new Scanner(System.in);
+        System.out.println("ENTER SECONDS-");
+        int Second=vj.nextInt();
+        int Hours = Second/3600;
+        int temp= Second%3600;
+        int Minutes=temp/60;
+        int Seconds=temp%60;
+        System.out.println(Hours+"HOURS, "+Minutes+"MINUTES, "+Seconds+"SECONDS!");
+    }
+}
+

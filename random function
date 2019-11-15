@@ -1,0 +1,48 @@
+/*created by- vishal jain
+date-16/11/2019
+compiled on-intellij idea ultimate.
+program name- Create a class named ‘GuessNumber.java’. This class will generate a random number from [1, 100]
+The user will input a number and try to guess the number. Sample input/output scenarios are given below:
+
+Sample 1
+I’m thinking of a number between 1 and 100 (including both):
+Can you guess what it is? 45
+No, the number I was thinking of was 14
+You were off by 31
+
+Sample 2
+I’m thinking of a number between 1 and 100 (including both):
+Can you guess what it is? 22
+Yes, you are right, I was thinking of 22!   */ 
+
+_________________________________________________________________________________________________________________________
+package Practice3;
+
+import com.sun.jna.platform.unix.Resource;
+
+import java.util.Scanner;
+
+public class Random {
+    public static void main(String[] args) {
+        Scanner vj= new Scanner(System.in);
+        System.out.println("I’m thinking of a number between 1 and 100");
+        System.out.println("Can you guess what it is?");
+        int v=vj.nextInt();
+       int  j= (int) (Math.random()*100);
+       if(v==j){
+           System.out.println("Yes, you are right, I was thinking of "+v);
+       }
+
+       else if(v>j){
+           int p=v-j;
+           System.out.println ("No,the number I was thinking of was"+j);
+           System.out.println("You were off by"+p);
+       }
+       else {
+           int p=j-v;
+           System.out.println("No, the number I was thinking of was"+j);
+           System.out.println("You were off by"+p);
+
+       }
+    }
+}

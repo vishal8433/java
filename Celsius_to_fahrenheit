@@ -1,0 +1,18 @@
+//created by- vishal jain
+//date-16/11/2019
+//compiled on-intellij idea ultimate.
+//program name-Celsius_to_fahrenheit.
+
+package Practice1;
+
+import java.util.Scanner;
+
+public class Celsius_to_fahrenheit {
+    public static void main(String[] args) {
+        Scanner vj=new Scanner(System.in);
+        System.out.println("ENTER TEMPERATURE IN CELSIUS!");
+        double celsius=vj.nextDouble();
+        double fahrenheit = ((celsius * (9 / 5)) +32);
+        System.out.println("TEMPERATURE IN FAHRENHEIT--"+fahrenheit);
+    }
+}

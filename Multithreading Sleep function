@@ -1,0 +1,35 @@
+/*created by- vishal jain
+date-17/11/2019
+compiled on-intellij idea ultimate.
+program name- Multithreading_2
+
+*/
+
+package practice5;
+
+import com.intellij.ide.ui.EditorOptionsTopHitProvider;
+
+public class Multithreading_2 {
+    public static void main(String[] args) {
+        Hii obj1=new Hii();
+        Hello obj2=new Hello();
+        obj1.show();
+        obj2.show();
+    }
+}
+class Hii{
+    public void show(){
+        for (int i=1;i<=5;i++){
+            System.out.println("hii");
+            try{Thread.sleep(500);} catch (Exception e){}
+        }
+    }
+}
+class Hello{
+    public void show(){
+        for (int i=1;i<=5;i++){
+            System.out.println("Hello");
+            try{Thread.sleep(500);} catch (Exception e){}
+        }
+    }
+}

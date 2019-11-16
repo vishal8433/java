@@ -1,0 +1,29 @@
+/*created by- vishal jain
+date-17/11/2019
+compiled on-intellij idea ultimate.
+program name-Hashset and treeset.
+
+*/
+package collectionsDemo1;
+
+import java.util.HashSet;
+import java.util.TreeSet;
+
+public class HashSetDemo {
+    public static void main(String[] args) {
+        HashSet<String> set = new HashSet<>();
+        System.out.println(set.size());
+        for (int i = 0; i < 26; i++) {
+            set.add(Character.toString('a' + i));
+        }
+        System.out.println(set);
+        System.out.println(set.size());
+        TreeSet<Integer> treeSet = new TreeSet<>();
+        for (int i = 0; i < 10; i++) {
+            int e = (int) (Math.random() * 10);
+            System.out.println("e" + e);
+            treeSet.add(e);
+        }
+        System.out.println(treeSet);
+    }
+}

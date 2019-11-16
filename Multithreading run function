@@ -1,0 +1,34 @@
+/*created by- vishal jain
+date-17/11/2019
+compiled on-intellij idea ultimate.
+program name-Multithreading_3.
+
+*/
+package Practice6;
+
+import com.intellij.ide.ui.EditorOptionsTopHitProvider;
+
+public class Multithreading_3 {
+    public static void main(String[] args) {
+        Hii obj1=new Hii();
+        Hello obj2=new Hello();
+        obj1.start();
+        obj2.start();
+    }
+}
+class Hii extends Thread{
+    public void run(){
+        for (int i=1;i<=5;i++){
+            System.out.println("hii");
+            try{Thread.sleep(500);} catch (Exception e){}
+        }
+    }
+}
+class Hello extends Thread{
+    public void run(){
+        for (int i=1;i<=5;i++){
+            System.out.println("Hello");
+            try{Thread.sleep(500);} catch (Exception e){}
+        }
+    }
+}

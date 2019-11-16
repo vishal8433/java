@@ -1,0 +1,31 @@
+/*created by- vishal jain
+date-29/08/2019
+compiled on-intellij idea ultimate.
+program name-Multithreading
+
+*/
+
+package Practice4;
+
+public class Multithreading {
+    public static void main(String[] args) {
+        Hii obj1=new Hii();
+        Hello obj2=new Hello();
+        obj1.show();
+        obj2.show();
+    }
+}
+class Hii{
+    public void show(){
+        for (int i=1;i<=5;i++){
+            System.out.println("hii");
+        }
+    }
+}
+class Hello{
+    public void show(){
+        for (int i=1;i<=5;i++){
+            System.out.println("Hello");
+        }
+    }
+}

@@ -1,88 +1,104 @@
-package Database;
+package app;
+
 import java.util.Scanner;
 
-public class Student_info {
-    public static void main(String[] args) {
-        Scanner vj=new Scanner(System.in);
-        System.out.println("enter the number of Students");
-        int n=vj.nextInt();
-        vj.nextLine().trim();
-        Student[] students=new Student[n];
-        for (int i=0;i<n; i++){
-            System.out.println("enter student name:");
-            String SName=vj.nextLine().trim();
-            System.out.println("enter father's name:");
-            String FName=vj.nextLine().trim();
-            System.out.println("enter mother's name:");
-            String MName=vj.nextLine().trim();
-            System.out.println("enter Address:");
-            String Address=vj.nextLine().trim();
-            System.out.println("enter  student mobile number:");
-            long S_mob_no=vj.nextLong();
-            System.out.println("enter father's mobile number:");
-            long F_mob_no=vj.nextLong();
-            students[i]= new Student(SName,FName,MName, Address,S_mob_no,F_mob_no);
-        }
-        System.out.println("___________________DATABASE__________________");
-        for (int j=0;j<n;j++){
-            System.out.println(students[j]);
-        }
-        vj.close();
+public class Student {
+    //  identifiers in Java start from a lowercase letter
+    private String name; // this variable is for storing his own name
+    private String fatherName; // this is the correct way of naming a variable with two words in Java
+    private String motherName;
+    private String address;
+    private long contactNumber;
+    private long parentContactNumber;
+
+    public Student(String name, String fatherName, String motherName, String address, long contactNumber, long parentContactNumber) {
+        this.name = name;
+        this.fatherName = fatherName;
+        this.motherName = motherName;
+        this.address = address;
+        this.contactNumber = contactNumber;
+        this.parentContactNumber = parentContactNumber;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getFatherName() {
+        return fatherName;
+    }
+
+    public void setFatherName(String fatherName) {
+        this.fatherName = fatherName;
+    }
+
+    public String getMotherName() {
+        return motherName;
+    }
+
+    public void setMotherName(String motherName) {
+        this.motherName = motherName;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public long getContactNumber() {
+        return contactNumber;
+    }
+
+    public void setContactNumber(long contactNumber) {
+        this.contactNumber = contactNumber;
+    }
+
+    public long getParentContactNumber() {
+        return parentContactNumber;
+    }
+
+    public void setParentContactNumber(long parentContactNumber) {
+        this.parentContactNumber = parentContactNumber;
+    }
+
+    @Override
+    public String toString() {
+        return this.getName() + ", " + this.getFatherName() + ", " + this.getMotherName() + ", " + this.getAddress() +
+                ", " + this.getContactNumber() + ", " + this.getParentContactNumber();
     }
 }
-class Student{
-    private String  SName;
-    private String FName;
-    private String MName;
-    private String Address;
-    private long S_mob_no;
-    private long F_mob_no;
 
-    public String getSName(){
-        return SName=SName;
-    }
-    public String getFName(){
-        return FName=FName;
-    }
-    public String getMName(){
-        return MName=MName;
-    }
-    public String getAddress(){
-        return Address=Address;
-    }
-    public long getS_mob_no(){
-        return S_mob_no=S_mob_no;
-    }
-    public long getF_mob_no(){
-        return F_mob_no=F_mob_no;
-    }
-    public void setSName(String SName){
-        this.SName=SName;
-    }
-    public void setFName(String FName){
-        this.FName=FName;
-    }
-    public void setMName(String MName){
-        this.MName=MName;
-    }
-    public void setAddress(String Address){
-        this.Address=Address;
-    }
-    public void setS_mob_no(long S_mob_no){
-        this.S_mob_no=S_mob_no;
-    }
-    public void setF_mob_no(long F_mob_no){
-        this.F_mob_no=F_mob_no;
-    }
-    public Student(String SName,String FName,String MName,String Address,long S_mob_no,long F_mob_no){
-        this.SName=SName;
-        this.FName=FName;
-        this.MName=MName;
-        this.Address=Address;
-        this.S_mob_no=S_mob_no;
-        this.F_mob_no=F_mob_no;
-    }
-    public String tostring(){
-        return String.format("%s%s%s%s%d%d",getSName(),getFName(),getMName(),getAddress(),getS_mob_no(),getF_mob_no());
+class AdmissionApp {
+    public static void main(String[] args) {
+        final Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter the number of student you want to store the details for: ");
+        int numberOfStudent = Integer.parseInt(scanner.nextLine());
+        Student[] students = new Student[numberOfStudent];
+        for (int i = 0; i < students.length; i++) {
+            System.out.println("Enter name of student: ");
+            String studentName = scanner.nextLine().trim();
+            System.out.println("Enter father's name: ");
+            String studentFatherName = scanner.nextLine().trim();
+            System.out.println("Enter mother's name: ");
+            String studentMotherName = scanner.nextLine().trim();
+            System.out.println("Enter address in 1 line: ");
+            String studentAddress = scanner.nextLine().trim();
+            System.out.println("Enter mobile number: ");
+            long studentContactNumber = Long.parseLong(scanner.nextLine().trim());
+            System.out.println("Enter parent contact number: ");
+            long studentParentContactNumber = Long.parseLong(scanner.nextLine().trim());
+            students[i] = new Student(studentName, studentFatherName, studentMotherName, studentAddress, studentContactNumber, studentParentContactNumber);
+        }
+        for (Student student : students) {
+            System.out.print(student.getName() + " ");
+        }
+        scanner.close();
     }
 }

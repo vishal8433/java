@@ -1,0 +1,121 @@
+//created by- vishal jain
+//date-29/11/2019
+//compiled on-intellij idea ultimate.
+//program name-Library by JDBC.
+
+
+_______________________________________________________________________________________________________________________________________
+package connection;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class DatabaseConnection {
+    private Connection connection=null;
+    private final static String url="jdbc:mysql://localhost:3306/test?serverTimezone=UTC";
+    private final static String user="root";
+    private final static String password="";
+    public Connection getConnection(){
+        return connection ;}
+        public boolean attemptConnection() throws SQLException {
+        connection = DriverManager.getConnection(url,user,password);
+        return connection != null;
+        }
+        public void closeConnection() throws SQLException {
+        getConnection().close();
+        }
+
+}
+________________________________________________________________________________________________________________________________________
+package Data;
+
+public class Book {
+    private int id;
+    private String name;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Book(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+}
+________________________________________________________________________________________________________________________________________
+package DatabaseHelper;
+
+import com.mysql.cj.jdbc.result.UpdatableResultSet;
+import Data.Book;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+public class BookEntry {
+
+    public boolean addnewBookIndatabase
+            (Connection connection, Book book) throws SQLException {
+
+        int bookID = book.getId();
+        String bookName = book.getName();
+
+//        INSERT INTO book (id, name) VALUES (1, 'OOP');
+
+        PreparedStatement p =
+                connection.prepareStatement
+                        ("INSERT INTO book (id, name) VALUES (?, ?);");
+        p.setInt(1, bookID);
+        p.setString(2, bookName);
+        int n = p.executeUpdate();
+        return n >= 1;
+    }
+
+
+
+}
+______________________________________________________________________________________________________________________________________
+package main;
+
+import connection.DatabaseConnection;
+import Data.Book;
+import DatabaseHelper.BookEntry;
+
+import java.sql.SQLException;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) throws SQLException {
+        DatabaseConnection connection = new DatabaseConnection();
+        connection.attemptConnection();
+        System.out.println("Enter book ID: ");
+        final Scanner scanner = new Scanner(System.in);
+        int bookID = Integer.parseInt(scanner.nextLine());
+        System.out.println("Enter book name: ");
+        String name = scanner.nextLine();
+        Book book = new Book(bookID, name);
+        BookEntry entry = new BookEntry();
+        if (entry.addnewBookIndatabase(connection.getConnection()
+                , book)) {
+            System.out.println("Successful");
+
+        } else {
+            System.out.println("Failed");
+        }
+
+    }
+}
+___________________________________________________________________________________________________________________________________

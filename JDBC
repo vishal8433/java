@@ -1,0 +1,140 @@
+//created by- vishal jain
+//date-10/12/2019
+//compiled on-intellij idea ultimate.
+//program name-addcourse in database.
+
+
+________________________________________________________________________________________________________________________
+package database;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class databaseconnection {
+    public Connection connection=null;
+    public final static String url="jdbc:mysql://localhost:3306/test?serverTimezone=UTC";
+    public final static String user="root";
+    public final static String password="";
+    public Connection getConnection(){
+        return connection;
+    }
+    public boolean attemptConnecttion() throws SQLException {
+        connection= DriverManager.getConnection(url,user,password);
+        return connection!=null;
+    }
+    public void closeConnection() throws SQLException {
+        getConnection().close();
+    }
+
+}
+______________________________________________________________________________________________________________________________
+package databasehelper;
+
+import database.databaseconnection;
+import uni.University;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+public class dbhelper {
+    public boolean addnewcourseinuniversity(Connection connection, University university ) throws SQLException {
+        String University_name=university.getUniv_name();
+        int University_code=university.getUniv_code();
+        String cour_name=university.getCourse_name();
+        String mini_Eligibilty=university.getMin_eligibility();
+        PreparedStatement vj =connection.prepareStatement("INSERT INTO UNIVERSITY (Univ_name,Univ_code,Course_name,Mini_eligibilty) VALUES(?,?,?,?);");
+        vj.setString(1,University_name);
+        vj.setInt(2,University_code);
+        vj.setString(3,cour_name);
+        vj.setString(4,mini_Eligibilty);
+        int n=vj.executeUpdate();
+        return n>=1;
+
+
+    }
+
+}
+________________________________________________________________________________________________________________________________
+package main;
+
+import com.intellij.openapi.graph.layout.router.polyline.CellSegmentInfo;
+import database.databaseconnection;
+import databasehelper.dbhelper;
+import uni.University;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) throws SQLException {
+        databaseconnection connection=new databaseconnection();
+        connection.attemptConnecttion();
+        System.out.println("enter university name");
+        final Scanner scanner=new Scanner(System.in);
+        String Univ_name=scanner.nextLine();
+        System.out.println("enter university code");
+        int Univ_code=Integer.parseInt(scanner.nextLine());
+        System.out.println("enter Course name");
+        String Course_name=scanner.nextLine();
+        System.out.println("enter minimum eligibility");
+        String Mini_eligibilty=scanner.nextLine();
+        University university=new University(Univ_name,Univ_code,Course_name,Mini_eligibilty);
+        dbhelper entry=new dbhelper();
+       if (entry.addnewcourseinuniversity(connection.getConnection(),university)){
+           System.out.println("successfull");
+       }else{
+           System.out.println("failed");
+       }
+    }
+}
+____________________________________________________________________________________________________________________
+package uni;
+
+public class University {
+    private String univ_name;
+    private int univ_code;
+    private String course_name;
+    private String min_eligibility;
+
+    public String getUniv_name() {
+        return univ_name;
+    }
+
+    public void setUniv_name(String univ_name) {
+        this.univ_name = univ_name;
+    }
+
+    public int getUniv_code() {
+        return univ_code;
+    }
+
+    public void setUniv_code(int univ_code) {
+        this.univ_code = univ_code;
+    }
+
+    public String getCourse_name() {
+        return course_name;
+    }
+
+    public void setCourse_name(String course_name) {
+        this.course_name = course_name;
+    }
+
+    public String getMin_eligibility() {
+        return min_eligibility;
+    }
+
+    public void setMin_eligibility(String min_eligibility) {
+        this.min_eligibility = min_eligibility;
+    }
+
+    public University(String univ_name, int univ_code, String course_name, String min_eligibility) {
+        this.univ_name = univ_name;
+        this.univ_code = univ_code;
+        this.course_name = course_name;
+        this.min_eligibility = min_eligibility;
+    }
+}

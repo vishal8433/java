@@ -1,0 +1,105 @@
+//created by- vishal jain
+//date-29/11/2019
+//compiled on-intellij idea ultimate.
+//program name-JDBC(updation)
+
+_____________________________________________________________________________________________________________________________
+package Connection;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class database {
+    public Connection connection=null;
+    public  final static String url="jdbc:mysql://localhost:3306/test?serverTimezone=UTC";
+    public final static String user="root";
+    public final static String password="";
+    public Connection getConnection(){
+        return connection;
+    }
+    public boolean attemptconnection() throws SQLException {
+        connection= DriverManager.getConnection(url,user,password);
+        return connection!=null;
+    }
+    public void closeconnection() throws SQLException {
+        getConnection().close();
+    }
+}
+_______________________________________________________________________________________________________________________________
+package rec;
+
+public class record {
+    private String  Messname;
+    private String Sname;
+
+    public String getMessname() {
+        return Messname;
+    }
+
+    public void setMessname(String messname) {
+        Messname = messname;
+    }
+
+    public String getSname() {
+        return Sname;
+    }
+
+    public void setSname(String sname) {
+        Sname = sname;
+    }
+
+    public record(String messname, String sname) {
+        Messname = messname;
+        Sname = sname;
+    }
+}
+______________________________________________________________________________________________________________________________
+package db;
+
+import rec.record;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+public class helper {
+    public boolean updatedatabase(Connection connection, record reco) throws SQLException {
+        String messname=reco.getMessname();
+        String sname=reco.getSname();
+        PreparedStatement vj=connection.prepareStatement("update mess set Messname=? WHERE Sname=?");
+        vj.setString(1,messname);
+        vj.setString(2,sname);
+        int n=vj.executeUpdate();
+        return n>=1;
+    }
+}
+___________________________________________________________________________________________________________________________
+package main;
+
+import Connection.database;
+import db.helper;
+import rec.record;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) throws SQLException {
+        database connection=new database();
+        connection.attemptconnection();
+        final Scanner scanner=new Scanner(System.in);
+        System.out.println("enter the mess name");
+        String messname=scanner.nextLine();
+        System.out.println("enter the student name");
+        String sname=scanner.nextLine();
+        record recor=new record(messname,sname);
+        helper entry =new helper();
+        if (entry.updatedatabase(connection.getConnection(),recor)){
+            System.out.println("successful");
+        }else{
+            System.out.println("failed");
+        }
+    }
+}

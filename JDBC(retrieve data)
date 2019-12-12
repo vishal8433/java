@@ -1,0 +1,114 @@
+//created by- vishal jain
+//date-12/12/2019
+//compiled on-intellij idea ultimate.
+//program name-JDBC(retrieve data).
+
+______________________________________________________________________________________________________________________________
+package database;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class DatabaseConnection {
+    public final static String url = "jdbc:mysql://localhost:3306/test?serverTimezone=UTC";
+    public final static String user = "root";
+    public final static String password = "";
+    public static Connection connection = null;
+
+    public static Connection getConnection() {
+        return connection;
+    }
+
+    public boolean attemptConnection() throws SQLException {
+        connection = DriverManager.getConnection(url, user, password);
+        return connection != null;
+    }
+
+    public void closeConnection() throws SQLException {
+        getConnection().close();
+    }
+}
+____________________________________________________________________________________________________________________________________
+package data;
+
+public class Book {
+    private int id;
+    private String name;
+
+    public Book(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    public Book(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Book ID: " + this.getId() + " Book Name: " + this.getName();
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+}
+______________________________________________________________________________________________________________________________
+package databaseHelper;
+
+import data.Book;
+
+import java.sql.*;
+
+public class DatabaseHelper {
+    public ResultSet getBookDetails(Connection connection, int bookID) throws SQLException {
+        String searchQuery = "SELECT * FROM book WHERE id = " + bookID + ";";
+        Statement statement = connection.createStatement();
+        return statement.executeQuery(searchQuery);
+    }
+
+    public void printResultSet(ResultSet resultSet) throws SQLException {
+        while (resultSet.next()) {
+            String name = resultSet.getString("name");
+            int id = resultSet.getInt("id");
+            Book book = new Book(id, name);
+            System.out.println(book);
+        }
+    }
+
+}
+
+// "SELECT * FROM book WHERE id = " + bookID + ";"
+_____________________________________________________________________________________________________________________________________
+package main;
+
+import database.DatabaseConnection;
+import databaseHelper.DatabaseHelper;
+
+import java.sql.SQLException;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) throws SQLException {
+        DatabaseConnection connection = new DatabaseConnection();
+        connection.attemptConnection();
+        DatabaseHelper databaseHelper = new DatabaseHelper();
+        final Scanner scanner=new Scanner(System.in);
+        System.out.println("enter the id");
+        int v=scanner.nextInt();
+        databaseHelper.printResultSet(databaseHelper.getBookDetails(DatabaseConnection.getConnection(), v));
+    }
+}

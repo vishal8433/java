@@ -1,0 +1,89 @@
+//created by- vishal jain
+//date-12/12/2019
+//compiled on-intellij idea ultimate.
+//program name-JDBC(delete)
+
+______________________________________________________________________________________________________________________________________
+package Connection;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class Databaseconnection {
+    public Connection connection=null;
+    public final static String url="jdbc:mysql://localhost:3306/test?serverTimezone=UTC";
+    public final static String user="root";
+    public final static String password="";
+    public Connection getConnection(){
+        return connection;
+    }
+    public boolean attemptConnecttion() throws SQLException {
+        connection= DriverManager.getConnection(url,user,password);
+        return connection!=null;
+    }
+    public void closeConnection() throws SQLException {
+        getConnection().close();
+    }
+
+}
+_________________________________________________________________________________________________________________________________________
+package book;
+
+public class Book {
+    private int id;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Book(int id) {
+        this.id = id;
+    }
+}
+_____________________________________________________________________________________________________________________________
+package db;
+import book.Book;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+public class Helper {
+    public boolean deleteBook(Connection connection, Book book) throws SQLException, SQLException {
+        String deleteQuery = "DELETE FROM book WHERE id = ?;";
+        PreparedStatement preparedStatement = connection.prepareStatement(deleteQuery);
+        preparedStatement.setInt(1, book.getId());
+        return preparedStatement.executeUpdate() >= 1;
+    }
+}
+___________________________________________________________________________________________________________________________________
+package main;
+
+import Connection.Databaseconnection;
+import book.Book;
+import db.Helper;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) throws SQLException {
+        Databaseconnection databaseconnection=new Databaseconnection();
+        databaseconnection.attemptConnecttion();
+        final Scanner scanner=new Scanner(System.in);
+        System.out.println("enter the ID-");
+        int id=scanner.nextInt();
+        Book book=new Book(id);
+        Helper entry=new Helper();
+        if (entry.deleteBook(databaseconnection.getConnection(),book)){
+            System.out.println("successful");
+        }else{
+            System.out.println("failed");
+        }
+    }
+}
